@@ -17,13 +17,12 @@ scrape_configs:
   - job_name: 'goshop-backend'
     metrics_path: /metrics
     static_configs:
-      - targets: ['backend-production-815c.up.railway.app:8080']  # THAY BẰNG DOMAIN THẬT
+      - targets: ['goshop-backend.railway.internal']
 
-  # TODO: ADD YOUR SERVICES HERE - FOODFAST
   - job_name: 'foodfast-delivery-backend'
     metrics_path: /metrics
     static_configs:
-      - targets: ['backend-production-62e6.up.railway.app:5000']  # THAY BẰNG DOMAIN THẬT
+      - targets: ['foodfast-delivery-backend.railway.internal']
 
   # Basic auth cho user/pass (nếu backend có)
   # basic_auth:
