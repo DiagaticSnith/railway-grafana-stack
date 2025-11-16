@@ -8,23 +8,14 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  # Example API (giữ lại nếu muốn)
-  # - job_name: 'example-api'
-  #   static_configs:
-  #     - targets: ['example-api:9091']
-
-  # TODO: ADD YOUR SERVICES HERE - GOSHOP
+  # GOSHOP BACKEND - DÙNG INTERNAL DOMAIN + PORT 8080
   - job_name: 'goshop-backend'
     metrics_path: /metrics
     static_configs:
-      - targets: ['goshop-backend.railway.internal']
+      - targets: ['goshop-backend.railway.internal:8080']
 
+  # FOODFAST BACKEND (thay tên + port thật)
   - job_name: 'foodfast-delivery-backend'
     metrics_path: /metrics
     static_configs:
-      - targets: ['foodfast-delivery-backend.railway.internal']
-
-  # Basic auth cho user/pass (nếu backend có)
-  # basic_auth:
-  #   username: HTTP_USER
-  #   password: HTTP_PASS
+      - targets: ['foodfast-delivery-backend.railway.internal:8080']  # sửa port nếu khác
