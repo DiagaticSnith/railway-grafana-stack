@@ -1,21 +1,31 @@
 global:
-  scrape_interval: 15s # Default scrape interval
+  scrape_interval: 15s
+  evaluation_interval: 15s
 
 scrape_configs:
+  # Prometheus tự monitor
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
 
-  # - job_name: 'example_api'
-  #   scheme: http
+  # Example API (giữ lại nếu muốn)
+  # - job_name: 'example-api'
   #   static_configs:
-  #     - targets: ['example_api:9091']
+  #     - targets: ['example-api:9091']
 
-  #  ? TODO: add your services here
-  # - job_name: 'your-job-name'
-  #   scheme: https
-  #   static_configs:
-  #     - targets: ['URL_GOES_HERE']
-  #   basic_auth:
-  #     username: HTTP_AUTH_USERNAME_GOES_HERE
-  #     password: HTTP_AUTH_PASSWORD_GOES_HERE
+  # TODO: ADD YOUR SERVICES HERE - GOSHOP
+  - job_name: 'goshop-backend'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['backend-production-815c.up.railway.app:8080']  # THAY BẰNG DOMAIN THẬT
+
+  # TODO: ADD YOUR SERVICES HERE - FOODFAST
+  - job_name: 'foodfast-delivery-backend'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['backend-production-62e6.up.railway.app:5000']  # THAY BẰNG DOMAIN THẬT
+
+  # Basic auth cho user/pass (nếu backend có)
+  # basic_auth:
+  #   username: HTTP_USER
+  #   password: HTTP_PASS
