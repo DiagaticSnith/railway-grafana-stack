@@ -4,9 +4,6 @@ global:
 
 scrape_configs:
   # Prometheus tự monitor
-  - job_name: 'prometheus'
-    static_configs:
-      - targets: ['localhost:9090']
 
   - job_name: 'goshop-backend'
     metrics_path: /metrics
