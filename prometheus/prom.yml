@@ -13,4 +13,4 @@ scrape_configs:
   - job_name: 'foodfast-backend'
     metrics_path: /metrics
     static_configs:
-      - targets: ['backend-production-62e6.up.railway.app']
+      - targets: ['backend-production-d296.up.railway.app']
