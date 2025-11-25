@@ -8,7 +8,7 @@ scrape_configs:
   - job_name: 'goshop-backend'
     metrics_path: /metrics
     static_configs:
-      - targets: ['backend-production-815c.up.railway.app']
+      - targets: ['backend-production-9be7.up.railway.app']
 
   - job_name: 'foodfast-backend'
     metrics_path: /metrics
